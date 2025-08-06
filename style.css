@@ -1,0 +1,259 @@
+/* Importar Orbitron desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Orbitron&display=swap');
+
+/* FONDO Y ESTILOS GLOBALES */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url('fondooo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 40px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: clamp(14px, 1.2vw, 18px); /* Fuente adaptable */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* TÍTULO */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 30px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ff8c00;
+  animation: pulse 2s infinite;
+  font-family: 'Bebas Neue', cursive;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* ENCABEZADO DE COLUMNAS */
+.encabezado-fijo, .tabla-contenedor {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.encabezado-fijo {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 15px 0;
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  font-family: 'Bebas Neue', cursive;
+}
+
+.encabezado-fijo .columna {
+  flex-grow: 1;
+  min-width: 60px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brillo 3s ease-in-out infinite;
+  text-shadow: 0 0 5px rgba(255, 140, 0, 0.85);
+  letter-spacing: 2px;
+}
+
+@keyframes brillo {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.columna-puesto {
+  flex-basis: 15%;
+  min-width: 40px;
+}
+
+.columna:nth-child(2) {
+  flex-basis: 55%;
+  min-width: 120px;
+}
+
+.columna:nth-child(3) {
+  flex-basis: 30%;
+  min-width: 70px;
+}
+
+/* CONTENEDOR DE LA TABLA */
+.tabla-contenedor {
+  overflow-x: auto;
+  height: 450px;
+  border-radius: 0 0 12px 12px;
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ANIMACIÓN DE SCROLL */
+.scroll-contenido {
+  height: auto;
+  animation: scrollUp 18s linear infinite;
+}
+
+/* TABLA */
+.scroll-contenido table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 300px; /* Para no romper en pantallas muy pequeñas */
+}
+
+table, thead, tbody, tr, th, td {
+  font-family: 'Bebas Neue', cursive !important;
+}
+
+th, td {
+  padding: 15px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: clamp(1rem, 1.4vw, 1.6rem);
+  transition: background 0.3s;
+}
+
+td:nth-child(1) {
+  min-width: 40px;
+}
+
+td:nth-child(2) {
+  min-width: 120px;
+}
+
+td:nth-child(3) {
+  min-width: 70px;
+}
+
+tr:hover td {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #d3c60a;
+}
+
+/* ANIMACIONES LOGOS */
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* IMÁGENES DE ESQUINA */
+.img-izquierda {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 250px;
+  height: auto;
+  z-index: 10;
+  filter: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  padding: 0;
+  border-radius: 0;
+  animation: pulseLogo 6s ease-in-out infinite, floatLogo 3s ease-in-out infinite;
+  transition: width 0.3s ease;
+}
+
+.img-derecha {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 130px;
+  height: auto;
+  z-index: 10;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+  animation: pulseLogo 6s ease-in-out infinite, floatLogo 3s ease-in-out infinite;
+  transition: width 0.3s ease;
+}
+
+/* RESPONSIVE PARA TABLETAS (481px a 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+  .img-izquierda {
+    width: 160px;
+  }
+
+  .img-derecha {
+    width: 90px;
+  }
+
+  .tabla-contenedor {
+    height: 350px;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+}
+
+/* RESPONSIVE PARA MÓVILES (<=480px) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .columna {
+    font-size: 1.1rem;
+  }
+
+  th, td {
+    font-size: 1rem;
+    padding: 8px 6px;
+  }
+
+  .tabla-contenedor {
+    height: 280px;
+  }
+
+  /* Ajuste imágenes a posición relativa para no tapar contenido y mejor distribución */
+  .img-izquierda,
+  .img-derecha {
+    position: relative;
+    width: 80px;
+    margin: 10px auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    animation: none;
+  }
+
+  /* Ajustar scroll animation para móviles (más lento o sin animación) */
+  .scroll-contenido {
+    animation: none;
+  }
+}
