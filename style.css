@@ -64,55 +64,11 @@ body::before {
     flex-direction: column;
 }
 
-/* Encabezado fijo */
-.encabezado-fijo {
-    display: flex;
-    width: 100%;
-    padding: 10px 0;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    border-radius: 12px 12px 0 0;
-    font-family: 'Bebas Neue', cursive;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    box-sizing: border-box;
-    gap: 0;
-}
-
-/* Ajustar ancho de las columnas del encabezado */
-.encabezado-fijo .columna-puesto { flex-basis: 15%; text-align: center; }
-.encabezado-fijo .columna:nth-child(2) { flex-basis: 55%; text-align: center; }
-.encabezado-fijo .columna:nth-child(3) { flex-basis: 30%; text-align: center; }
-
-.encabezado-fijo .columna {
-    flex-grow: 0;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: clamp(1.2rem, 2vw, 1.9rem);
-    background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: brillo 3s ease-in-out infinite;
-    text-shadow: 0 0 5px rgba(255, 140, 0, 0.85);
-    letter-spacing: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    min-height: 45px;
-}
-@keyframes brillo {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-/* Contenedor tabla */
+/* Contenedor de la tabla con scroll animado */
 .tabla-contenedor {
     height: 450px;
     overflow: hidden;
-    border-radius: 0 0 12px 12px;
+    border-radius: 12px;
     background: rgba(0, 0, 0, 0.45);
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     position: relative;
@@ -133,14 +89,51 @@ body::before {
     animation-play-state: paused;
 }
 
-/* Tablas */
-.scroll-contenido table {
+/* Tablas principales y clones */
+.scroll-contenido .tabla-ranking {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout: fixed; /* Esto es CLAVE para la alineación */
     min-width: 300px;
 }
-th, td {
+
+/* Encabezado (thead y th) */
+.tabla-ranking thead {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 12px 12px 0 0;
+    font-family: 'Bebas Neue', cursive;
+    box-shadow: 0 0px 12px rgba(0,0,0,0.35); /* Ajustamos el box-shadow */
+}
+.tabla-ranking th {
+    padding: 15px 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.2rem, 2vw, 1.9rem);
+    background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brillo 3s ease-in-out infinite;
+    text-shadow: 0 0 5px rgba(255, 140, 0, 0.85);
+    letter-spacing: 2px;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+@keyframes brillo {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Anchos de las columnas para alineación perfecta */
+.tabla-ranking .columna-puesto, .tabla-ranking th:nth-child(1) { width: 15%; }
+.tabla-ranking th:nth-child(2) { width: 55%; }
+.tabla-ranking th:nth-child(3) { width: 30%; }
+
+/* Cuerpo de la tabla (tbody y td) */
+.tabla-ranking tbody td {
     padding: 15px 10px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
@@ -149,9 +142,6 @@ th, td {
     font-size: clamp(1rem, 1.4vw, 1.6rem);
     transition: background 0.3s;
 }
-td:nth-child(1) { width: 15%; }
-td:nth-child(2) { width: 55%; }
-td:nth-child(3) { width: 30%; }
 
 tr:hover td {
     background-color: rgba(0, 0, 0, 0.25);
@@ -167,10 +157,8 @@ tr:hover td {
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
-/* ANCHOS POR DEFECTO PARA PANTALLAS GRANDES */
 .img-izquierda { left: 20px; width: 120px; }
 .img-derecha { right: 20px; width: 180px; }
-
 @keyframes pulseLogo {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.85; }
@@ -194,31 +182,18 @@ tr:hover td {
         justify-content: center;
         align-items: center;
     }
-    .contenedor-titulo {
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-    .contenedor-tabla-completa {
-        margin-top: 0;
-    }
-    .tabla-contenedor {
-        height: 600px;
-    }
-    /* AJUSTES DE LOGOS PARA PC */
+    .contenedor-titulo { margin-top: 0; margin-bottom: 20px; }
+    .contenedor-tabla-completa { margin-top: 0; }
+    .tabla-contenedor { height: 600px; }
     .img-izquierda { width: 120px; }
     .img-derecha { width: 180px; }
 }
 
 /* Pantallas medianas (tablets, hasta laptops pequeñas) */
 @media screen and (max-width: 1024px) {
-    .contenedor-titulo {
-        margin-top: 80px;
-    }
-    .contenedor-tabla-completa {
-        margin-top: 30px;
-    }
+    .contenedor-titulo { margin-top: 80px; }
+    .contenedor-tabla-completa { margin-top: 30px; }
     .tabla-contenedor { height: 400px; }
-    /* AJUSTES DE LOGOS PARA TABLETS */
     .img-izquierda { width: 90px; }
     .img-derecha { width: 120px; }
 }
@@ -226,22 +201,11 @@ tr:hover td {
 /* Pantallas pequeñas (móviles) */
 @media screen and (max-width: 480px) {
     body { padding-top: 10px; }
-
-    .contenedor-titulo h1 {
-        font-size: 1.8rem;
-        margin-top: 60px;
-        margin-bottom: 20px;
-    }
-
-    .contenedor-tabla-completa {
-        width: 98%;
-        margin-top: 20px;
-    }
-
-    .encabezado-fijo .columna { font-size: 1rem; letter-spacing: 1px; }
-    td { font-size: 0.9rem; padding: 8px 6px; }
+    .contenedor-titulo h1 { font-size: 1.8rem; margin-top: 60px; margin-bottom: 20px; }
+    .contenedor-tabla-completa { width: 98%; margin-top: 20px; }
+    .tabla-ranking th { font-size: 1rem; letter-spacing: 1px; padding: 8px 6px; }
+    .tabla-ranking tbody td { font-size: 0.9rem; padding: 8px 6px; }
     .tabla-contenedor { height: 300px; }
-    /* AJUSTES DE LOGOS PARA MÓVILES */
     .img-izquierda { width: 70px; top: 10px; }
     .img-derecha { width: 100px; top: 10px; }
 }

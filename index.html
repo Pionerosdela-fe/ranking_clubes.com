@@ -18,19 +18,27 @@
     </div>
 
     <div class="contenedor-tabla-completa">
-
-        <div class="encabezado-fijo">
-            <div class="columna columna-puesto">PUESTO</div>
-            <div class="columna">CLUB</div>
-            <div class="columna">PUNTAJE</div>
-        </div>
-
+        
         <div class="tabla-contenedor">
             <div class="scroll-contenido" id="scroll-contenido">
-                <table>
+                <table class="tabla-ranking">
+                    <thead>
+                        <tr>
+                            <th class="columna-puesto">PUESTO</th>
+                            <th>CLUB</th>
+                            <th>PUNTAJE</th>
+                        </tr>
+                    </thead>
                     <tbody id="tabla-puntajes"></tbody>
                 </table>
-                <table aria-hidden="true">
+                <table class="tabla-ranking" aria-hidden="true">
+                    <thead>
+                        <tr>
+                            <th class="columna-puesto">PUESTO</th>
+                            <th>CLUB</th>
+                            <th>PUNTAJE</th>
+                        </tr>
+                    </thead>
                     <tbody id="tabla-puntajes-clon"></tbody>
                 </table>
             </div>
