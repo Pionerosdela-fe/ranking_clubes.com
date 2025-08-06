@@ -41,7 +41,7 @@ body::before {
 }
 .img-izquierda {
     left: 10px;
-    width: 250px; /* MODIFICADO: Ahora es igual al logo de la derecha */
+    width: 210px; /* MODIFICADO: Ahora es igual al logo de la derecha */
 }
 .img-derecha {
     right: 10px;
