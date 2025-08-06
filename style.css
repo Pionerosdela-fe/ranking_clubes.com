@@ -40,7 +40,7 @@ body::before {
 }
 
 .contenedor-titulo h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin: 20px 0;
     color: #ffd700;
     text-shadow: 0 0 10px #ff8c00;
@@ -70,7 +70,9 @@ body::before {
 .encabezado-fijo {
     display: flex;
     width: 100%;
-    padding: 8px 6px; /* Ajustado para celular */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 12px 10px;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(8px);
@@ -79,13 +81,15 @@ body::before {
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
     box-sizing: border-box;
     gap: 0;
+    justify-content: space-around;
 }
 
+/* Estilo para todas las columnas del encabezado */
 .encabezado-fijo .columna {
     flex-grow: 0;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1rem;
+    font-size: 1.8rem;
     background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -98,7 +102,7 @@ body::before {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    min-height: 45px;
+    min-height: 70px;
 }
 @keyframes brillo {
     0%, 100% { background-position: 0% 50%; }
@@ -106,31 +110,36 @@ body::before {
 }
 
 /* Anchos de las columnas del encabezado */
-.encabezado-fijo .columna-puesto { flex-basis: 15%; text-align: center; }
+/* Se aplica a los divs con la clase .columna */
+.encabezado-fijo .columna:nth-child(1) { flex-basis: 15%; text-align: center; }
 .encabezado-fijo .columna:nth-child(2) { flex-basis: 55%; text-align: center; }
 .encabezado-fijo .columna:nth-child(3) { flex-basis: 30%; text-align: center; }
+
 
 /* ------------------------------------------------------------- */
 /* CUERPO DE LA TABLA CON SCROLL ANIMADO                         */
 /* ------------------------------------------------------------- */
-.tabla-scroll {
-    height: 300px;
+.cuerpo-tabla-scroll {
+    height: 800px;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     border-radius: 0 0 12px 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Animación scroll */
 .scroll-contenido {
     display: flex;
     flex-direction: column;
-    animation: scrollUp 25s linear infinite;
+    animation: scrollUp 60s linear infinite;
 }
 @keyframes scrollUp {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    100% { transform: translateY(-66.66%); }
 }
 .scroll-contenido:hover {
     animation-play-state: paused;
@@ -144,12 +153,12 @@ body::before {
     min-width: 300px;
 }
 td {
-    padding: 8px 6px;
+    padding: 20px 8px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: #fff;
     font-family: 'Bebas Neue', cursive;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     transition: background 0.3s;
 }
 
@@ -167,13 +176,13 @@ tr:hover td {
 .img-izquierda,
 .img-derecha {
     position: fixed;
-    top: 10px;
+    top: 40px; /* MODIFICADO: Bajado 30 píxeles */
     height: auto;
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
-.img-izquierda { left: 10px; width: 70px; }
-.img-derecha { right: 10px; width: 100px; }
+.img-izquierda { left: -20px; width: 250px; }
+.img-derecha { right: 20px; width: 140px; }
 @keyframes pulseLogo {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.85; }
