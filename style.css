@@ -29,25 +29,24 @@ body::before {
 }
 
 /* ------------------------------------------------------------- */
-/* LOGOS (AJUSTADOS PARA ESQUINAS SUPERIORES EN CELULAR)         */
+/* LOGOS (AJUSTE FINO PARA ESQUINAS Y MEJOR VISUALIZACIÓN)       */
 /* ------------------------------------------------------------- */
 .img-izquierda,
 .img-derecha {
     position: fixed;
-    top: 20px; /* Posición más baja para que no se superponga con la barra de estado */
+    top: 15px;
     height: auto;
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
-.img-izquierda { 
-    left: 15px; /* Más cerca de la esquina izquierda */
-    width: 90px; /* Tamaño reducido para no ocupar tanto espacio */
+.img-izquierda {
+    left: 10px;
+    width: 80px;
 }
-.img-derecha { 
-    right: 15px; /* Más cerca de la esquina derecha */
-    width: 100px; /* Tamaño reducido */
+.img-derecha {
+    right: 10px;
+    width: 90px;
 }
-
 @keyframes pulseLogo {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.85; }
@@ -61,20 +60,19 @@ body::before {
 }
 
 /* ------------------------------------------------------------- */
-/* TÍTULO (AJUSTADO PARA MEJOR ESPACIO)                          */
+/* TÍTULO (ESPACIO Y TAMAÑO MEJORADO)                            */
 /* ------------------------------------------------------------- */
 .contenedor-titulo {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 120px; /* Ajustado para dejar espacio debajo de los logos */
+    margin-top: 100px; /* Suficiente espacio debajo de los logos */
     z-index: 5;
     flex-shrink: 0;
 }
-
 .contenedor-titulo h1 {
-    font-size: 1.8rem; /* Tamaño de fuente ajustado para móvil */
+    font-size: 1.8rem;
     margin: 20px 0;
     color: #ffd700;
     text-shadow: 0 0 10px #ff8c00;
@@ -82,26 +80,26 @@ body::before {
     font-family: 'Bebas Neue', cursive;
     text-align: center;
 }
-
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.8; }
 }
 
 /* ------------------------------------------------------------- */
-/* TABLA (AJUSTADA PARA MEJOR VISUALIZACIÓN)                     */
+/* TABLA (REESTRUCTURADO PARA ADAPTARSE A MÓVILES)               */
 /* ------------------------------------------------------------- */
 .contenedor-tabla-completa {
     width: 98%;
     max-width: 900px;
-    margin: 30px auto 0; /* Ajuste del margen superior para separarlo del título */
+    margin: 30px auto 0;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .encabezado-fijo {
-    display: flex;
+    display: grid; /* Cambiado a Grid para un control preciso */
+    grid-template-columns: 15% 55% 30%; /* Columnas definidas para el encabezado */
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
@@ -113,15 +111,12 @@ body::before {
     font-family: 'Bebas Neue', cursive;
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
     box-sizing: border-box;
-    gap: 0;
-    justify-content: space-around;
 }
 
 .encabezado-fijo .columna {
-    flex-grow: 0;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1.5rem; /* Tamaño de fuente ajustado para el encabezado */
+    font-size: 1.5rem;
     background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -134,19 +129,15 @@ body::before {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    min-height: 60px; /* Altura ajustada */
-    flex-basis: 15%;
+    min-height: 60px;
 }
-.encabezado-fijo .columna:nth-child(2) { flex-basis: 55%; }
-.encabezado-fijo .columna:nth-child(3) { flex-basis: 30%; }
-
 @keyframes brillo {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
 
 .cuerpo-tabla-scroll {
-    height: 60vh; /* Altura ajustada para que ocupe una porción de la pantalla del móvil */
+    height: 60vh;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     border-radius: 0 0 12px 12px;
@@ -160,7 +151,7 @@ body::before {
 .scroll-contenido {
     display: flex;
     flex-direction: column;
-    animation: scrollUp 45s linear infinite; /* Duración ajustada */
+    animation: scrollUp 45s linear infinite;
 }
 @keyframes scrollUp {
     0% { transform: translateY(0); }
@@ -177,12 +168,12 @@ body::before {
     min-width: 300px;
 }
 td {
-    padding: 15px 8px; /* Relleno ajustado */
+    padding: 15px 8px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: #fff;
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.2rem; /* Tamaño de fuente ajustado */
+    font-size: 1.2rem;
     transition: background 0.3s;
 }
 
