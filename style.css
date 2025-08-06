@@ -157,9 +157,12 @@ tr:hover td {
   50% { transform: scale(1.05); opacity: 0.85; }
 }
 
-@keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes bounceLogo {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-15px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
 /* IMÁGENES DE ESQUINA */
@@ -170,7 +173,7 @@ tr:hover td {
   width: 250px;
   height: auto;
   z-index: 10;
-  animation: pulseLogo 6s ease-in-out infinite, floatLogo 3s ease-in-out infinite;
+  animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
   transition: width 0.3s ease;
 }
 
@@ -182,7 +185,7 @@ tr:hover td {
   height: auto;
   z-index: 10;
   filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
-  animation: pulseLogo 6s ease-in-out infinite, floatLogo 3s ease-in-out infinite;
+  animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
   transition: width 0.3s ease;
 }
 
@@ -214,18 +217,19 @@ tr:hover td {
     height: 280px;
   }
 
-  .img-izquierda,
-  .img-derecha {
-    position: relative;
+  .img-izquierda {
+    position: fixed;
+    top: 10px;
+    left: 10px;
     width: 80px;
-    margin: 10px auto;
-    top: auto;
-    left: auto;
-    right: auto;
-    animation: none;
+    animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
   }
 
-  .scroll-contenido {
-    animation: none;
+  .img-derecha {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
   }
 }
