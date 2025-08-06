@@ -97,7 +97,7 @@ body::before {
     min-width: 300px;
 }
 
-/* Encabezado (thead y th) */
+/* Estilos para el encabezado de la tabla (thead y th) */
 .tabla-ranking thead {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(8px);
@@ -128,11 +128,11 @@ body::before {
 }
 
 /* Anchos de las columnas para alineación perfecta */
-.tabla-ranking .columna-puesto, .tabla-ranking th:nth-child(1) { width: 15%; }
-.tabla-ranking th:nth-child(2) { width: 55%; }
-.tabla-ranking th:nth-child(3) { width: 30%; }
+.tabla-ranking .columna-puesto, .tabla-ranking th:nth-child(1), .tabla-ranking td:nth-child(1) { width: 15%; }
+.tabla-ranking th:nth-child(2), .tabla-ranking td:nth-child(2) { width: 55%; }
+.tabla-ranking th:nth-child(3), .tabla-ranking td:nth-child(3) { width: 30%; }
 
-/* Cuerpo de la tabla (tbody y td) */
+/* Estilos para el cuerpo de la tabla (tbody y td) */
 .tabla-ranking tbody td {
     padding: 15px 10px;
     text-align: center;
