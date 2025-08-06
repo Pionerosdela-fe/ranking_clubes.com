@@ -12,7 +12,7 @@ body {
     color: white;
     min-height: 100vh;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 10px; /* Ajuste para celular */
     position: relative;
     box-sizing: border-box;
     font-size: clamp(14px, 1.2vw, 18px);
@@ -28,20 +28,20 @@ body::before {
     z-index: -1;
 }
 
-/* Contenedor para centrar el título */
+/* Contenedor para el título en celular */
 .contenedor-titulo {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 60px; /* Ajuste para celular */
     z-index: 5;
     flex-shrink: 0;
 }
 
 .contenedor-titulo h1 {
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin: 40px 0;
+    font-size: 1.8rem; /* Tamaño fijo para celular */
+    margin: 20px 0;
     color: #ffd700;
     text-shadow: 0 0 10px #ff8c00;
     animation: pulse 2s infinite;
@@ -55,10 +55,10 @@ body::before {
 }
 
 .contenedor-tabla-completa {
-    width: 95%;
+    width: 98%; /* Ajuste para celular */
     max-width: 900px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px; /* Ajuste para celular */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -66,7 +66,7 @@ body::before {
 
 /* Contenedor de la tabla con scroll animado */
 .tabla-contenedor {
-    height: 450px;
+    height: 300px; /* Altura ajustada para celular */
     overflow: hidden;
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.45);
@@ -93,7 +93,7 @@ body::before {
 .scroll-contenido .tabla-ranking {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* Esto es CLAVE para la alineación */
+    table-layout: fixed; /* CLAVE para la alineación */
     min-width: 300px;
 }
 
@@ -103,13 +103,13 @@ body::before {
     backdrop-filter: blur(8px);
     border-radius: 12px 12px 0 0;
     font-family: 'Bebas Neue', cursive;
-    box-shadow: 0 0px 12px rgba(0,0,0,0.35); /* Ajustamos el box-shadow */
+    box-shadow: 0 0px 12px rgba(0,0,0,0.35);
 }
 .tabla-ranking th {
-    padding: 15px 10px;
+    padding: 8px 6px; /* Ajuste para celular */
     font-weight: 900;
     text-transform: uppercase;
-    font-size: clamp(1.2rem, 2vw, 1.9rem);
+    font-size: 1rem; /* Ajuste para celular */
     background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -117,7 +117,7 @@ body::before {
     -webkit-text-fill-color: transparent;
     animation: brillo 3s ease-in-out infinite;
     text-shadow: 0 0 5px rgba(255, 140, 0, 0.85);
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Ajuste para celular */
     text-align: center;
     white-space: nowrap;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
@@ -134,12 +134,12 @@ body::before {
 
 /* Estilos para el cuerpo de la tabla (tbody y td) */
 .tabla-ranking tbody td {
-    padding: 15px 10px;
+    padding: 8px 6px; /* Ajuste para celular */
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: #fff;
     font-family: 'Bebas Neue', cursive;
-    font-size: clamp(1rem, 1.4vw, 1.6rem);
+    font-size: 0.9rem; /* Ajuste para celular */
     transition: background 0.3s;
 }
 
@@ -148,17 +148,17 @@ tr:hover td {
     color: #d3c60a;
 }
 
-/* Logos independientes */
+/* Logos para celular */
 .img-izquierda,
 .img-derecha {
     position: fixed;
-    top: 20px;
+    top: 10px; /* Ajuste para celular */
     height: auto;
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
-.img-izquierda { left: 20px; width: 120px; }
-.img-derecha { right: 20px; width: 180px; }
+.img-izquierda { left: 10px; width: 70px; } /* Ajuste para celular */
+.img-derecha { right: 10px; width: 100px; } /* Ajuste para celular */
 @keyframes pulseLogo {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.85; }
@@ -169,43 +169,4 @@ tr:hover td {
     50%  { transform: translateY(0); }
     70%  { transform: translateY(-8px); }
     100% { transform: translateY(0); }
-}
-
-/* ------------------------------------------------------------- */
-/* MEDIA QUERIES PARA ADAPTAR EL DISEÑO              */
-/* ------------------------------------------------------------- */
-
-/* Pantallas grandes (PC, Laptops) */
-@media screen and (min-width: 1025px) {
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .contenedor-titulo { margin-top: 0; margin-bottom: 20px; }
-    .contenedor-tabla-completa { margin-top: 0; }
-    .tabla-contenedor { height: 600px; }
-    .img-izquierda { width: 120px; }
-    .img-derecha { width: 180px; }
-}
-
-/* Pantallas medianas (tablets, hasta laptops pequeñas) */
-@media screen and (max-width: 1024px) {
-    .contenedor-titulo { margin-top: 80px; }
-    .contenedor-tabla-completa { margin-top: 30px; }
-    .tabla-contenedor { height: 400px; }
-    .img-izquierda { width: 90px; }
-    .img-derecha { width: 120px; }
-}
-
-/* Pantallas pequeñas (móviles) */
-@media screen and (max-width: 480px) {
-    body { padding-top: 10px; }
-    .contenedor-titulo h1 { font-size: 1.8rem; margin-top: 60px; margin-bottom: 20px; }
-    .contenedor-tabla-completa { width: 98%; margin-top: 20px; }
-    .tabla-ranking th { font-size: 1rem; letter-spacing: 1px; padding: 8px 6px; }
-    .tabla-ranking tbody td { font-size: 0.9rem; padding: 8px 6px; }
-    .tabla-contenedor { height: 300px; }
-    .img-izquierda { width: 70px; top: 10px; }
-    .img-derecha { width: 100px; top: 10px; }
 }
