@@ -41,7 +41,7 @@ body::before {
 }
 .img-izquierda {
     left: -20px;
-    width: 200px;
+    width: 200px; /* MODIFICADO: Ahora es igual al logo de la derecha */
 }
 .img-derecha {
     right: 10px;
@@ -137,12 +137,13 @@ body::before {
 }
 
 .cuerpo-tabla-scroll {
-    /* MODIFICADO: Eliminado height y overflow */
+    height: 60vh;
+    overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     border-radius: 0 0 12px 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     position: relative;
-    width: 100%;
+    width: 100px%;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -150,13 +151,14 @@ body::before {
 .scroll-contenido {
     display: flex;
     flex-direction: column;
-    /* MODIFICADO: Eliminada la animación de scroll automático */
+    animation: scrollUp 45s linear infinite;
 }
-
-/* MODIFICADO: Eliminadas las animaciones de scroll si no hay barra */
 @keyframes scrollUp {
     0% { transform: translateY(0); }
     100% { transform: translateY(-66.66%); }
+}
+.scroll-contenido:hover {
+    animation-play-state: paused;
 }
 
 .scroll-contenido .tabla-ranking {
