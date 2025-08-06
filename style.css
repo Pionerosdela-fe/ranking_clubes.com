@@ -67,7 +67,7 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px; /* Suficiente espacio debajo de los logos */
+    margin-top: 150px; /* AUMENTADO para dejar más espacio */
     z-index: 5;
     flex-shrink: 0;
 }
@@ -98,8 +98,8 @@ body::before {
 }
 
 .encabezado-fijo {
-    display: grid; /* Cambiado a Grid para un control preciso */
-    grid-template-columns: 15% 55% 30%; /* Columnas definidas para el encabezado */
+    display: grid;
+    grid-template-columns: 15% 55% 30%;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
