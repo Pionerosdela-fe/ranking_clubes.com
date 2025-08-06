@@ -28,7 +28,6 @@ body::before {
     z-index: -1;
 }
 
-/* Contenedor para el título en celular */
 .contenedor-titulo {
     width: 100%;
     display: flex;
@@ -64,9 +63,6 @@ body::before {
     flex-direction: column;
 }
 
-/* ------------------------------------------------------------- */
-/* ENCABEZADO FIJO DE LA TABLA                                   */
-/* ------------------------------------------------------------- */
 .encabezado-fijo {
     display: flex;
     width: 100%;
@@ -84,7 +80,6 @@ body::before {
     justify-content: space-around;
 }
 
-/* Estilo para todas las columnas del encabezado */
 .encabezado-fijo .columna {
     flex-grow: 0;
     text-transform: uppercase;
@@ -103,22 +98,20 @@ body::before {
     align-items: center;
     white-space: nowrap;
     min-height: 70px;
+    flex-basis: 15%; /* ANCHO PUESTO */
 }
+.encabezado-fijo .columna:nth-child(2) {
+    flex-basis: 55%; /* ANCHO CLUB */
+}
+.encabezado-fijo .columna:nth-child(3) {
+    flex-basis: 30%; /* ANCHO PUNTAJE */
+}
+
 @keyframes brillo {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
 
-/* Anchos de las columnas del encabezado */
-/* Se aplica a los divs con la clase .columna */
-.encabezado-fijo .columna:nth-child(1) { flex-basis: 15%; text-align: center; }
-.encabezado-fijo .columna:nth-child(2) { flex-basis: 55%; text-align: center; }
-.encabezado-fijo .columna:nth-child(3) { flex-basis: 30%; text-align: center; }
-
-
-/* ------------------------------------------------------------- */
-/* CUERPO DE LA TABLA CON SCROLL ANIMADO                         */
-/* ------------------------------------------------------------- */
 .cuerpo-tabla-scroll {
     height: 800px;
     overflow: hidden;
@@ -131,7 +124,6 @@ body::before {
     margin: 0 auto;
 }
 
-/* Animación scroll */
 .scroll-contenido {
     display: flex;
     flex-direction: column;
@@ -145,7 +137,6 @@ body::before {
     animation-play-state: paused;
 }
 
-/* Tablas */
 .scroll-contenido .tabla-ranking {
     width: 100%;
     border-collapse: collapse;
@@ -162,7 +153,6 @@ td {
     transition: background 0.3s;
 }
 
-/* Anchos de las columnas del cuerpo de la tabla */
 td:nth-child(1) { width: 15%; }
 td:nth-child(2) { width: 55%; }
 td:nth-child(3) { width: 30%; }
@@ -172,11 +162,10 @@ tr:hover td {
     color: #d3c60a;
 }
 
-/* Logos para celular */
 .img-izquierda,
 .img-derecha {
     position: fixed;
-    top: 40px; /* MODIFICADO: Bajado 30 píxeles */
+    top: 40px;
     height: auto;
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
