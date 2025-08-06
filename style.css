@@ -167,7 +167,7 @@ tr:hover td {
     z-index: 10;
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
-/* ANCHOS POR DEFECTO PARA PANTALLAS GRANDES (PUEDES AJUSTAR ESTOS) */
+/* ANCHOS POR DEFECTO PARA PANTALLAS GRANDES */
 .img-izquierda { left: 20px; width: 120px; }
 .img-derecha { right: 20px; width: 180px; }
 
@@ -204,9 +204,9 @@ tr:hover td {
     .tabla-contenedor {
         height: 600px;
     }
-    /* AJUSTA LOS ANCHOS INDIVIDUALMENTE PARA PC SI LO DESEAS */
-    .img-izquierda { width: 250px; }
-    .img-derecha { width: 120px; }
+    /* AJUSTES DE LOGOS PARA PC */
+    .img-izquierda { width: 120px; }
+    .img-derecha { width: 180px; }
 }
 
 /* Pantallas medianas (tablets, hasta laptops pequeñas) */
@@ -218,9 +218,9 @@ tr:hover td {
         margin-top: 30px;
     }
     .tabla-contenedor { height: 400px; }
-    /* AJUSTA LOS ANCHOS INDIVIDUALMENTE PARA TABLETS SI LO DESEAS */
-    .img-izquierda { width: 100px; }
-    .img-derecha { width: 140px; }
+    /* AJUSTES DE LOGOS PARA TABLETS */
+    .img-izquierda { width: 90px; }
+    .img-derecha { width: 120px; }
 }
 
 /* Pantallas pequeñas (móviles) */
@@ -241,7 +241,7 @@ tr:hover td {
     .encabezado-fijo .columna { font-size: 1rem; letter-spacing: 1px; }
     td { font-size: 0.9rem; padding: 8px 6px; }
     .tabla-contenedor { height: 300px; }
-    /* AJUSTA LOS ANCHOS INDIVIDUALMENTE PARA MÓVILES SI LO DESEAS */
-    .img-izquierda { width: 65px; top: 10px; }
-    .img-derecha { width: 95px; top: 10px; }
+    /* AJUSTES DE LOGOS PARA MÓVILES */
+    .img-izquierda { width: 70px; top: 10px; }
+    .img-derecha { width: 100px; top: 10px; }
 }
