@@ -29,7 +29,7 @@ body::before {
 }
 
 /* ------------------------------------------------------------- */
-/* LOGOS (AJUSTE FINO PARA ESQUINAS Y MEJOR VISUALIZACIÓN)       */
+/* LOGOS (AJUSTE DE TAMAÑO)                                      */
 /* ------------------------------------------------------------- */
 .img-izquierda,
 .img-derecha {
@@ -41,7 +41,7 @@ body::before {
 }
 .img-izquierda {
     left: 10px;
-    width: 80px;
+    width: 90px; /* MODIFICADO: Ahora es igual al logo de la derecha */
 }
 .img-derecha {
     right: 10px;
@@ -67,7 +67,7 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px; /* AUMENTADO para dejar más espacio */
+    margin-top: 150px;
     z-index: 5;
     flex-shrink: 0;
 }
