@@ -28,18 +28,53 @@ body::before {
     z-index: -1;
 }
 
+/* ------------------------------------------------------------- */
+/* LOGOS (AJUSTADOS PARA ESQUINAS SUPERIORES EN CELULAR)         */
+/* ------------------------------------------------------------- */
+.img-izquierda,
+.img-derecha {
+    position: fixed;
+    top: 20px; /* Posición más baja para que no se superponga con la barra de estado */
+    height: auto;
+    z-index: 10;
+    animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
+}
+.img-izquierda { 
+    left: 15px; /* Más cerca de la esquina izquierda */
+    width: 90px; /* Tamaño reducido para no ocupar tanto espacio */
+}
+.img-derecha { 
+    right: 15px; /* Más cerca de la esquina derecha */
+    width: 100px; /* Tamaño reducido */
+}
+
+@keyframes pulseLogo {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.85; }
+}
+@keyframes bounceLogo {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-15px); }
+    50%  { transform: translateY(0); }
+    70%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* ------------------------------------------------------------- */
+/* TÍTULO (AJUSTADO PARA MEJOR ESPACIO)                          */
+/* ------------------------------------------------------------- */
 .contenedor-titulo {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 120px; /* Ajustado para dejar espacio debajo de los logos */
     z-index: 5;
     flex-shrink: 0;
 }
 
 .contenedor-titulo h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Tamaño de fuente ajustado para móvil */
     margin: 20px 0;
     color: #ffd700;
     text-shadow: 0 0 10px #ff8c00;
@@ -53,11 +88,13 @@ body::before {
     50% { transform: scale(1.05); opacity: 0.8; }
 }
 
+/* ------------------------------------------------------------- */
+/* TABLA (AJUSTADA PARA MEJOR VISUALIZACIÓN)                     */
+/* ------------------------------------------------------------- */
 .contenedor-tabla-completa {
     width: 98%;
     max-width: 900px;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 30px auto 0; /* Ajuste del margen superior para separarlo del título */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -84,7 +121,7 @@ body::before {
     flex-grow: 0;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Tamaño de fuente ajustado para el encabezado */
     background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -97,15 +134,11 @@ body::before {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    min-height: 70px;
-    flex-basis: 15%; /* ANCHO PUESTO */
+    min-height: 60px; /* Altura ajustada */
+    flex-basis: 15%;
 }
-.encabezado-fijo .columna:nth-child(2) {
-    flex-basis: 55%; /* ANCHO CLUB */
-}
-.encabezado-fijo .columna:nth-child(3) {
-    flex-basis: 30%; /* ANCHO PUNTAJE */
-}
+.encabezado-fijo .columna:nth-child(2) { flex-basis: 55%; }
+.encabezado-fijo .columna:nth-child(3) { flex-basis: 30%; }
 
 @keyframes brillo {
     0%, 100% { background-position: 0% 50%; }
@@ -113,7 +146,7 @@ body::before {
 }
 
 .cuerpo-tabla-scroll {
-    height: 800px;
+    height: 60vh; /* Altura ajustada para que ocupe una porción de la pantalla del móvil */
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     border-radius: 0 0 12px 12px;
@@ -127,7 +160,7 @@ body::before {
 .scroll-contenido {
     display: flex;
     flex-direction: column;
-    animation: scrollUp 60s linear infinite;
+    animation: scrollUp 45s linear infinite; /* Duración ajustada */
 }
 @keyframes scrollUp {
     0% { transform: translateY(0); }
@@ -144,12 +177,12 @@ body::before {
     min-width: 300px;
 }
 td {
-    padding: 20px 8px;
+    padding: 15px 8px; /* Relleno ajustado */
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: #fff;
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Tamaño de fuente ajustado */
     transition: background 0.3s;
 }
 
@@ -160,26 +193,4 @@ td:nth-child(3) { width: 30%; }
 tr:hover td {
     background-color: rgba(0, 0, 0, 0.25);
     color: #d3c60a;
-}
-
-.img-izquierda,
-.img-derecha {
-    position: fixed;
-    top: 40px;
-    height: auto;
-    z-index: 10;
-    animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
-}
-.img-izquierda { left: -20px; width: 250px; }
-.img-derecha { right: 20px; width: 140px; }
-@keyframes pulseLogo {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.85; }
-}
-@keyframes bounceLogo {
-    0%   { transform: translateY(0); }
-    30%  { transform: translateY(-15px); }
-    50%  { transform: translateY(0); }
-    70%  { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
 }
