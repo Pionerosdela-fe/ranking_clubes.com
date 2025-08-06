@@ -40,8 +40,8 @@ body::before {
     animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
 }
 .img-izquierda {
-    left: 10px;
-    width: 210px; /* MODIFICADO: Ahora es igual al logo de la derecha */
+    left: -1px;
+    width: 200px; /* MODIFICADO: Ahora es igual al logo de la derecha */
 }
 .img-derecha {
     right: 10px;
