@@ -32,17 +32,11 @@ body::before {
   z-index: -1;
 }
 
-/* CONTENEDOR SUPERIOR PARA TÍTULO */
-.contenedor-superior {
-  margin-top: 120px;
-  z-index: 5;
-}
-
 /* TÍTULO */
 h1 {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   color: #ffd700;
   text-shadow: 0 0 10px #ff8c00;
   animation: pulse 2s infinite;
@@ -55,6 +49,17 @@ h1 {
   50% { transform: scale(1.05); opacity: 0.8; }
 }
 
+/* CONTENEDOR GENERAL DE ENCABEZADO + TABLA */
+.tabla-wrapper {
+  width: 95%;
+  max-width: 900px;
+  margin: 20px auto 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
 /* ENCABEZADO DE COLUMNAS */
 .encabezado-fijo {
   display: flex;
@@ -64,11 +69,7 @@ h1 {
   padding: 15px 0;
   font-weight: bold;
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   font-family: 'Bebas Neue', cursive;
-  width: 95%;
-  max-width: 900px;
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -99,18 +100,9 @@ h1 {
 
 /* CONTENEDOR DE LA TABLA */
 .tabla-contenedor {
-  width: 95%;
-  max-width: 900px;
   height: 450px;
   overflow: hidden;
-  border-radius: 0 0 12px 12px;
-  background: rgba(0, 0, 0, 0.45);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 40px auto 0;
-  padding-top: 20px;
 }
 
 /* SCROLL ANIMADO INFINITO */
@@ -174,39 +166,39 @@ tr:hover td {
   100% { transform: translateY(0); }
 }
 
-/* IMÁGENES DE ESQUINA IGUALADAS */
-.img-izquierda,
-.img-derecha {
+/* LOGO IZQUIERDA */
+.img-izquierda {
   position: fixed;
   top: 20px;
-  width: 180px;
+  left: 20px;
+  width: 160px;
   height: auto;
   z-index: 10;
   animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
   transition: width 0.3s ease;
 }
 
-.img-izquierda { left: 20px; }
-.img-derecha { right: 20px; }
-
-/* RESPONSIVE PARA TABLETAS */
-@media screen and (max-width: 1024px) and (min-width: 481px) {
-  .img-izquierda,
-  .img-derecha {
-    width: 140px;
-  }
-
-  .tabla-contenedor {
-    height: 350px;
-  }
-
-  h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin-top: 100px;
-  }
+/* LOGO DERECHA */
+.img-derecha {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  height: auto;
+  z-index: 10;
+  animation: pulseLogo 6s ease-in-out infinite, bounceLogo 2.5s ease-in-out infinite;
+  transition: width 0.3s ease;
 }
 
-/* RESPONSIVE PARA MÓVILES */
+/* RESPONSIVE PARA TABLETS */
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+  .img-izquierda { width: 120px; }
+  .img-derecha   { width: 160px; }
+  .tabla-contenedor { height: 350px; }
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
+}
+
+/* RESPONSIVE PARA CELULARES */
 @media screen and (max-width: 480px) {
   h1 {
     font-size: 1.8rem;
@@ -228,9 +220,15 @@ tr:hover td {
     margin-top: 30px;
   }
 
-  .img-izquierda,
-  .img-derecha {
-    width: 100px;
+  .img-izquierda {
+    width: 90px;
     top: 10px;
+    left: 10px;
+  }
+
+  .img-derecha {
+    width: 120px;
+    top: 10px;
+    right: 10px;
   }
 }
