@@ -143,7 +143,7 @@ body::before {
     border-radius: 0 0 12px 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     position: relative;
-    width: 100px%;
+    width: 100%; /* Corregido: Se eliminó 'px' y se añadió el punto y coma si faltaba */
     max-width: 800px;
     margin: 0 auto;
 }
